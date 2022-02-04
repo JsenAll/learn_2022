@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="person" class="com.jsen.basic.Person" >
+        <property name="name" value = "sen" />
+        <property name="age" value="26"/>
+        <property name="emails">
+            <list>
+                <value>stuffs</value>
+                <value>affairs</value>
+            </list>
+
+        </property>
+        <property name="tels">
+            <set>
+                <value>13245316960</value>
+                <value>17898989989</value>
+            </set>
+        </property>
+        <property name="address">
+            <list>
+                <value>北京</value>
+                <value>上海</value>
+                <value>山东</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="user" class = "com.jsen.basic.User"/>
+    <bean name="user2" class = "com.jsen.basic.User"/>
+
+</beans>
