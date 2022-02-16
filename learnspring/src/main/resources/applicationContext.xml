@@ -11,7 +11,6 @@
                 <value>stuffs</value>
                 <value>affairs</value>
             </list>
-
         </property>
         <property name="tels">
             <set>
@@ -26,8 +25,22 @@
                 <value>山东</value>
             </list>
         </property>
+        <property name="qqs">
+            <map>
+                <entry value="7987897238748923" key="小名"/>
+                <entry value="7987897238748923" key="大名"/>
+            </map>
+        </property>
+        <property name="p">
+            <props>
+                <prop key="key1">key1</prop>
+                <prop key="key2">key2</prop>
+            </props>
+        </property>
+        <property name="personDao" ref="persondaoImpl"/>
     </bean>
     <bean id="user" class = "com.jsen.basic.User"/>
     <bean name="user2" class = "com.jsen.basic.User"/>
-
+    <bean id="persondaoImpl" class ="com.jsen.basic.PersonDaoImpl">
+    </bean>
 </beans>

@@ -17,6 +17,7 @@ public class BeanFactoryTest {
         Person person = applicationContext.getBean("person", Person.class);
         System.out.println(person);
     }
+
     /**
      * spring context 获取bean的几种方式。
      */
@@ -60,10 +61,10 @@ public class BeanFactoryTest {
      * 两种方式判断是否包含 bean
      */
     @Test
-    public void containsBeanTest(){
-        ApplicationContext applicationContext = new  ClassPathXmlApplicationContext("/applicationContext.xml");
+    public void containsBeanTest() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("/applicationContext.xml");
         boolean person = applicationContext.containsBean("person");
-        System.out.println("containsBean()"+person);
+        System.out.println("containsBean()" + person);
         person = applicationContext.containsBeanDefinition("person");
         System.out.println("containsBeanDefinition" + person);
     }
@@ -72,9 +73,9 @@ public class BeanFactoryTest {
      * 通过别名进行获取
      */
     @Test
-    public void nameTest(){
-        ApplicationContext applicationContext  =new ClassPathXmlApplicationContext("applicationContext.xml");
-        User user = (User)applicationContext.getBean("user2");
+    public void nameTest() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        User user = (User) applicationContext.getBean("user2");
         user.setName("小名");
         user.setPassword("ajdfaadf");
         System.out.println(user.toString());
@@ -84,14 +85,17 @@ public class BeanFactoryTest {
      * 对各种
      */
     @Test
-    public void injectTest(){
-        ApplicationContext applicationContext= new ClassPathXmlApplicationContext("applicationContext.xml");
-        Person person = applicationContext.getBean("person",Person.class);
-        System.out.println("对 String 类型 进行注入 "+person.getName());
+    public void injectTest() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Person person = applicationContext.getBean("person", Person.class);
+        System.out.println("对 String 类型 进行注入 " + person.getName());
         System.out.println("对 Int 类型 进行注入 " + person.getAge());
-        System.out.println("对 Array 类型 进行注入 " +  Arrays.toString(person.getEmails()));
-        System.out.println("对 Set 类型 进行注入 " +  person.getTels().toString());
-        System.out.println("对 List 类型 进行注入 " +  person.getAddress().toString());
-
+        System.out.println("对 Array 类型 进行注入 " + Arrays.toString(person.getEmails()));
+        System.out.println("对 Set 类型 进行注入 " + person.getTels().toString());
+        System.out.println("对 List 类型 进行注入 " + person.getAddress().toString());
+        System.out.println("对 Map 类型 进行注入 " + person.getQqs().toString());
+        System.out.println("对 Properties 类型 进行注入 " + person.getP().toString());
+        person.printT(person);
     }
+
 }
