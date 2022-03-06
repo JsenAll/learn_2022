@@ -3,8 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="person" class="com.jsen.basic.Person" >
-        <property name="name" value = "sen" />
+    <bean id="person" class="com.jsen.basic.Person">
+        <property name="name" value="sen"/>
         <property name="age" value="26"/>
         <property name="emails">
             <list>
@@ -39,8 +39,16 @@
         </property>
         <property name="personDao" ref="persondaoImpl"/>
     </bean>
-    <bean id="user" class = "com.jsen.basic.User"/>
-    <bean name="user2" class = "com.jsen.basic.User"/>
-    <bean id="persondaoImpl" class ="com.jsen.basic.PersonDaoImpl">
+    <bean id="user" class="com.jsen.basic.User"/>
+    <bean name="user2" class="com.jsen.basic.User"/>
+    <bean id="persondaoImpl" class="com.jsen.basic.PersonDaoImpl">
     </bean>
+
+    <!-- 返回的对象 是 com.jsen.factorybean.MySqlConnectionFactoryBean 中 getObject() 的返回值
+         不是 MySqlConnectionFactoryBean 对象 -->
+    <bean class="com.jsen.factorybean.MySqlConnectionFactoryBean" id="connection"/>
+
+    <!-- 如果 想返回 MySqlConnectionFactoryBean 对象  需要这样写-->
+<!--    <bean class="com.jsen.factorybean.MySqlConnectionFactoryBean" id="&connection"/>-->
+
 </beans>

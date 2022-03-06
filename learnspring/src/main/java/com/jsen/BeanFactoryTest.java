@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.sql.Connection;
 import java.util.Arrays;
 
 /**
@@ -96,6 +97,15 @@ public class BeanFactoryTest {
         System.out.println("对 Map 类型 进行注入 " + person.getQqs().toString());
         System.out.println("对 Properties 类型 进行注入 " + person.getP().toString());
         person.printT(person);
+    }
+
+    @Test
+    public void text() {
+        ApplicationContext applicationContext= new ClassPathXmlApplicationContext("/applicationContext.xml");
+        Connection connection = applicationContext.getBean("connection", Connection.class);
+        Connection connection2 = applicationContext.getBean("connection", Connection.class);
+        System.out.println(connection);
+        System.out.println(connection2);
     }
 
 }
